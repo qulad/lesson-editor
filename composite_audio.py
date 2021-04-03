@@ -1,6 +1,5 @@
 import moviepy.editor as mp
 import os
-import pathlib
 
 # github.com/qulad
 
@@ -35,7 +34,7 @@ TR: course-->ders ve week-->hafta parametrelerini alır. audio ve deskshare dosy
 	if not os.path.exists(export_dir):
 		os.makedirs(export_dir)
 	final_clip.write_videofile(f"{export_dir}/{course}H{week}.mp4", codec= "libx264", audio=True, audio_codec="libmp3lame", audio_bitrate="64k")
-	return pathlib.Path(__file__).parent.absolute() + f"{export_dir}/{course}H{week}.mp4"
+	return os.path.abspath(f"{export_dir} / audio - {course}H{week}.mp3")
 
 if __name__ == "__main__":
 	merge(course, week)
